@@ -1,0 +1,5 @@
+- page: '/pages/landingPage'
+  features:
+    cookies: true
+    check links: true
+    check invalid company: true

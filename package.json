@@ -1,0 +1,54 @@
+{
+  "name": "node-playwright-starter",
+  "version": "0.0.1",
+  "description": "Starter template for Playwright test automation using Node / Typescript",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "prepare": "husky install",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --retries 0 --project=chromium",
+    "test:chromium-headed": "playwright test -j 1 --retries 0 --headed --project=chromium"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "lint-staged": {
+    "*.{json,md,ts}": [
+      "prettier --write"
+    ],
+    "*.{ts}": "eslint --fix",
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20.11.16",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "chai": "^5.0.3",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-playwright": "^0.22.2",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.0",
+    "indent-list-reporter": "^1.0.8",
+    "lint-staged": "^15.2.2",
+    "mailosaur": "^8.6.1",
+    "prettier": "3.2.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.41.2",
+    "dotenv": "^16.4.3",
+    "faker-js": "^1.0.0",
+    "feature-map": "^1.0.0",
+    "tslib": "^2.6.2"
+  }
+}

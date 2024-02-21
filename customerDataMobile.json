@@ -1,0 +1,18 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "full_name": "Raquel Shanahan",
+      "email": "RaquelShanahan_Powlowski@chtest.mailosaur.net",
+      "password": "Password123!",
+      "phone_number": "07418612089"
+    },
+    {
+      "id": 2,
+      "full_name": "Roosevelt Torp Sr.",
+      "email": "RooseveltTorpSr.36@chtest.mailosaur.net",
+      "password": "Password123!",
+      "phone_number": "07418612089"
+    }
+  ]
+}
