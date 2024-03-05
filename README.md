@@ -4,22 +4,21 @@ Test automation using playwright framework for the CH account services
 
 ## Table of Contents
 
-1. [Pre-requisites of tools needed to run this solution on Windows](#pre-requisites-of-tools-needed-to-run-this-solution-on-a-pc)
-2. [Installation steps for Windows](#installation-steps-for-windows)
-3. [Background actions](#background-actions)
-4. [Execute tests via Playwright Headless Mode](#execute-tests-via-playwright-headless-mode)
-5. [Execute tests via Playwright Headed Mode](#execute-tests-via-playwright-headed-mode)
-6. [Code Quality](#code-quality)
-7. [Test Summary](#test-summary)
-8. [Checking the report after running the tests](#checking-the-report-after-running-the-tests)
-9. [Contributing to the project](#contributing-to-the-project)
+- [Pre-requisites of tools needed to run this solution on a Machine](#pre-requisites-of-tools-needed-to-run-this-solution-on-a-machine)
+- [Installation steps](#installation-steps)
+- [Execute tests via Git Bash](#git-bash-execution)
+- [Execute tests via Powershell](#powershell-execution)
+- [Code Quality](#code-quality)
+- [Test Summary](#test-summary)
+- [Checking the report after running the tests](#checking-the-report-after-running-the-tests)
+- [Contributing to the project](#contributing-to-the-project)
 
-## Pre-requisites of tools needed to run this solution on a PC:
+## Pre-requisites of tools needed to run this solution on a Machine:
 
-PC has the following already installed:
+Machine has the following already installed:
 
 - Git (for example Git for windows https://gitforwindows.org/)
-- Node.js 18 (https://nodejs.org/en/)
+- Node.js 18 (https://nodejs.org/en/about/previous-releases)
 - NPM (https://docs.npmjs.com/getting-started)
 - IDE (for my testing I used Visual Studio Code https://code.visualstudio.com/download and this guide has been written from that POV but any IDE of users choice be fine)
 
@@ -31,7 +30,7 @@ PC has the following already installed:
 4.  Change directory in command prompt to required drive and folder that you want to install the Repo i.e. C:\ or C:\Automation (any folder of your choice)
 5.  From the repository page on GitHub, click the green button labeled Clone or download, and in the “Clone with HTTPs” section, copy the URL for this repository. In VS Code or Git bash run a clone command:
 
-        git clone git@github.com:companieshouse/taf-idam-node.git
+        git@github.com:companieshouse/node-playwright-starter.git
 
 6.  Once the repository has cloned open the new folder downloaded via IDE/VS Code using the "Open Folder" option and locating it via explorer
 7.  Once IDE/VS Code is in the correct folder, open a terminal server and run command below which should pull down and install all the dependencies required:
@@ -60,13 +59,81 @@ PC has the following already installed:
 
 13. This completes the setup of Playwright and dependencies for running the solution
 
-## Execute tests via Playwright Headless Mode:
+## Test Execution
+
+### Git Bash Execution
+
+By default VS Code will use Powershell for it's terminal so you will need to change this to use Bash by default.
+
+When in the terminal view look for the "+" sign and press the down arrow "Launch profile" to see a selection of options.
+
+![alt text](<Readme Artifacts/select_profile.jpg>)
+
+From the dropdown select the "Select Default Profile" option
+
+![alt text](<Readme Artifacts/default_profile_selection.jpg>)
+
+By default the first option in the list will be Powershell. To change to Bash, select Git bash - this will now mean any new terminals will open in Bash.
+
+![alt text](<Readme Artifacts/powershell_default.jpg>)
+
+To confirm Bash is now default you can also double check via the "Launch Profile" dropdown and Git Bash should appear with (Default)
+
+![alt text](<Readme Artifacts/bash_as_default.jpg>)
+
+To execute tests against CI DEV in Git Bash
+
+    ENVIRONMENT=cidev npx playwright test
+
+![alt text](<Readme Artifacts/set_cidev_bash.jpg>)
+
+To execute tests against Staging in Git Bash
+
+    ENVIRONMENT=staging npx playwright test
+
+![alt text](<Readme Artifacts/set_staging_bash.jpg>)
+
+#### Execute tests via Playwright Headless Mode in Git Bash:
+
+To run Playwright via Test Runner (Defined in Package.json under Scripts) run the below command:
+
+    ENVIRONMENT=staging npm run test
+
+#### Execute tests via Playwright Headed Mode in Git Bash:
+
+To run tests in headed mode just for Chromium then the following command will work
+
+    ENVIRONMENT=staging npm run test:chromium-headed
+
+### Powershell Execution
+
+By default VS Code will use Powershell for it's terminal unless you follow the above to set bash to default. If your preference is to use Powershell locally, then follow these instructions. To leverage the ability to choose an environment for tests to run, users will need set the environment variables prior to running the tests.
+
+This can be achieved using the below commands first:
+
+CIDEV
+
+        $env:ENVIRONMENT="cidev"
+
+This is how it will look in terminal
+
+![alt text](<Readme Artifacts/set_cidev_ps.jpg>)
+
+STAGING
+
+        $env:ENVIRONMENT="staging"
+
+This is how it will look in terminal
+
+![alt text](<Readme Artifacts/set_staging_ps.jpg>)
+
+#### Execute tests via Playwright Headless Mode:
 
 To run Playwright via Test Runner (Defined in Package.json under Scripts) run the below command:
 
     npm run test
 
-## Execute tests via Playwright Headed Mode:
+#### Execute tests via Playwright Headed Mode:
 
 Alternatively, the tests can be run in a headed mode
 
@@ -146,7 +213,7 @@ If all fixes have been applied or you have no prettier style issues then the ter
 
 ## Test Summary:
 
-The suite runs some basic tests on the IDAM website using Playwright automation.
+The suite runs some basic tests on the CHS website using Playwright automation.
 
 ### Coverage Calculations
 

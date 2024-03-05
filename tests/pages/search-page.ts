@@ -2,6 +2,7 @@
 import { click, fill, gotoURL } from '../../src/utils/action-utils';
 import { expectElementToBeVisible, expectElementToHaveText } from '../../src/utils/assert-utils';
 import { getLocator, getLocatorByRole } from '../../src/utils/locator-utils';
+import { Env } from '../../src/utils/env';
 
 const govLogo = () => getLocator('.govuk-header__logo');
 const signInLink = () => getLocatorByRole('link', { name: 'Sign in / Register' });
@@ -18,6 +19,7 @@ const alphabetCompanySearchLink = () => getLocatorByRole('link', { name: 'Alphab
 const dissolvedCompanySearchLink = () => getLocatorByRole('link', { name: 'Dissolved company search' });
 const cookies = () => getLocatorByRole('button', { name: 'Accept analytics cookies' });
 const hideCookies = () => getLocatorByRole('button', { name: 'Hide this message' });
+const baseUrl: string = Env.BASE_URL || 'https://staging.company-information.service.gov.uk/'; //this will allow tests to be run on environments with different base URLs
 
 export async function clickOnCookies() {
   await click(cookies());
@@ -25,7 +27,7 @@ export async function clickOnCookies() {
 }
 
 export async function navigateToSearchPage() {
-  await gotoURL('https://staging.company-information.service.gov.uk/');
+  await gotoURL(baseUrl);
 }
 
 export async function checkExpectedTextAppear() {

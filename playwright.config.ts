@@ -1,9 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
 import { ACTION_TIMEOUT, EXPECT_TIMEOUT, NAVIGATION_TIMEOUT, TEST_TIMEOUT } from './src/utils/timeout-constants';
 import { WaitForLoadStateOptions } from './src/setup/optional-parameter-types';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+if (process.env.ENVIRONMENT) {
+  //console.log('ENVIRONMENT: ', process.env.ENVIRONMENT);
+  config({
+    path: `./env/.env.${process.env.ENVIRONMENT}`,
+    override: true,
+  });
+} else {
+  config();
+}
 
 export const LOADSTATE: WaitForLoadStateOptions = 'domcontentloaded';
 export const NAVIGATION_TIMEOUT_MS = NAVIGATION_TIMEOUT;

@@ -26,7 +26,7 @@
 hs_err_pid*
 
 #Env Files #
-*.env
+*.env.*
 
 #Target Files #
 target/
@@ -115,4 +115,3 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 coverage-output.txt
-tests/*.json

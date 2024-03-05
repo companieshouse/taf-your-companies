@@ -1,0 +1,18 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "full_name": "Mitchell Schultz",
+      "email": "MitchellSchultz17@chtest.mailosaur.net",
+      "password": "Password123!",
+      "phone_number": "07418612089"
+    },
+    {
+      "id": 2,
+      "full_name": "Sharon Prosacco",
+      "email": "SharonProsacco86@chtest.mailosaur.net",
+      "password": "Password123!",
+      "phone_number": "07418612089"
+    }
+  ]
+}
