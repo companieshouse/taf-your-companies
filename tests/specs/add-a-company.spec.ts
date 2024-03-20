@@ -49,14 +49,14 @@ test.describe('Add a company journey', () => {
     await YourCompanies.checkCompanyExistsInTable(Env.COMPANY_NUMBER);
   });
 
-  test('Accessibility test for add a company journey @accessibility', async () => {
-    await axeTest(getPage());
+  test('Accessibility test for add a company journey @accessibility', async ({}, testInfo) => {
+    await axeTest(getPage(), testInfo);
     await YourCompanies.addACompany();
-    await axeTest(getPage());
+    await axeTest(getPage(), testInfo);
     await CompanyNumber.enterCompanyNumber(Env.COMPANY_NUMBER);
-    await axeTest(getPage());
+    await axeTest(getPage(), testInfo);
     await ConfirmCompany.confirmAndContinue();
     await AuthenticationCode.enterAuthenticationCode(Env.AUTH_CODE);
-    await axeTest(getPage());
+    await axeTest(getPage(), testInfo);
   });
 });
